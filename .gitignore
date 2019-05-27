@@ -1,0 +1,24 @@
+# Byte complied files
+__pycache__/
+*.py[cod]
+
+# Virtual env
+pyenv/*
+
+# Local git config
+.gitconfig
+
+# db files
+*.sqlite3
+*.sqlite
+
+# Static folders
+src/static/
+
+# admin static folders
+src/*/static/admin
+
+.DS_Store
+
+# Environment
+local.env
