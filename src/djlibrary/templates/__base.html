@@ -1,0 +1,41 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  {% block meta_tags %}{% endblock %}
+  <title>{% block title %}Django CBV using Argon Theme{% endblock %}</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  {% block css %}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link type="text/css" href="{% static 'argon/css/argon.min.css' %}" rel="stylesheet">
+  {% endblock %}
+  {% block custom_css %}{% endblock %}
+</head>
+<body>
+  {% block side_navbar %}{% endblock %}
+  <!-- Main content -->
+  <div class="main-content">
+    {% block top_navbar %}{% endblock %}
+    {% block main_content %}{% endblock %}
+    <div class="container-fluid clear-top">
+      {% block footer %}
+        {% include "_footer.html" %}
+      {% endblock %}
+    </div>
+  </div>
+  {% block js %}
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <!-- Argon JS -->
+  <script src="{% static 'argon/js/argon.min.js' %}"></script>
+  {% endblock %}
+  {% block custom_js %}{% endblock %}
+</body>
+
+</html>
