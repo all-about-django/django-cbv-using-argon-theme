@@ -4,6 +4,7 @@ from django.views.generic import ListView
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views.generic.edit import CreateView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import UpdateView
 from django.urls import reverse_lazy
 
 from .models import Book
@@ -46,3 +47,15 @@ class BookDetailView(DetailView):
     model = Book
     template_name = 'book/detail.html'
     context_object_name = 'book'
+
+
+@method_decorator(login_required, name='dispatch')
+class BookUpdateView(UpdateView):
+
+    model = Book
+    template_name = 'book/update.html'
+    context_object_name = 'book'
+    fields = ('name', 'isbn_number',)
+
+    def get_success_url(self):
+        return reverse_lazy('book-detail', kwargs={'pk': self.object.id})
