@@ -17,11 +17,19 @@
   {% block custom_css %}{% endblock %}
 </head>
 <body>
-  {% block side_navbar %}{% endblock %}
+  {% block side_navbar %}{% include "_sidenav.html" %}{% endblock %}
   <!-- Main content -->
   <div class="main-content">
-    {% block top_navbar %}{% endblock %}
-    {% block main_content %}{% endblock %}
+    {% block top_navbar %}{% include "_navbar.html" %}{% endblock %}
+    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+      <div class="container-fluid">
+        {% block header_content %}{% endblock %}
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+      {% block page_content %}{% endblock %}
+    </div>
     <div class="container-fluid clear-top">
       {% block footer %}
         {% include "_footer.html" %}
