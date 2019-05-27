@@ -1,0 +1,40 @@
+{% extends "__base.html" %}
+
+{% block page_content %}
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card bg-secondary shadow h-100">
+            <div class="card-header bg-white border-0">
+                <div class="row align-items-center">
+                    <div class="col-8">
+                        <h3 class="mb-0">List of Books</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Isbn</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in books %}
+                    <tr>
+                        <td>{{book.name}}</td>
+                        <td>{{book.isbn_number}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer py-4">
+            {% if is_paginated %}
+                {% include "_pagination.html" %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
