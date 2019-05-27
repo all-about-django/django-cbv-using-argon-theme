@@ -2,6 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
 
 from .models import Book
 
@@ -26,4 +28,11 @@ class BookListView(ListView):
         except EmptyPage:
             books = paginator.page(paginator.num_pages)
         context['books'] = books
-        return context
+
+
+@method_decorator(login_required, name='dispatch')
+class BookCreateView(CreateView):
+    model = Book
+    template_name = 'book/create.html'
+    fields = ('name', 'isbn_number', )
+    success_url = reverse_lazy('book-list')
