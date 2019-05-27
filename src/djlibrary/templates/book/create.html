@@ -4,7 +4,14 @@
 {% block page_content %}
 <div class="card">
     <div class="card-header">
-        <h5 class="card-title">Create a New Book</h5>
+        <div class="row align-items-center">
+            <div class="col-8">
+                <h3 class="mb-0">Create a New Book</h3>
+            </div>
+            <div class="col-4 text-right">
+                <a href="{% url 'book-list' %}" class="btn btn-sm btn-primary">View All</a>
+            </div>
+        </div>
     </div>
     <div class="card-body">
         <form method="post">
