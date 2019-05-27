@@ -1,0 +1,25 @@
+{% extends "__base.html" %}
+
+{% block page_content %}
+<div class="card">
+    <div class="card-header">
+        <div class="row align-items-center">
+            <div class="col-8">
+                <h3 class="mb-0">Book Details #{{book.id}}</h3>
+            </div>
+            <div class="col-4 text-right">
+                <a href="{% url 'book-list' %}" class="btn btn-sm btn-primary">View All</a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+    <dl class="row">
+      <dt class="col-sm-3">Book Name</dt>
+      <dd class="col-sm-9">{{ book.name }}</dd>
+      <dt class="col-sm-3">ISBN</dt>
+      <dd class="col-sm-9">{{ book.isbn_number }}</dd>
+    </dl>
+
+    </div>
+</div>
+{% endblock %}

@@ -15,6 +15,7 @@
                 <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                     <tr>
+                        <th scope="col">Id</th>
                         <th scope="col">Name</th>
                         <th scope="col">Isbn</th>
                     </tr>
@@ -22,6 +23,9 @@
                 <tbody>
                     {% for book in books %}
                     <tr>
+                        <td>
+                            <a href="{% url 'book-detail' book.id %}">{{book.id}}</a>
+                        </td>
                         <td>{{book.name}}</td>
                         <td>{{book.isbn_number}}</td>
                     </tr>
