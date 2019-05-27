@@ -47,6 +47,7 @@ THIRD_PARTY_APPS = ()
 
 OUR_APPS = (
     'base',
+    'store',
 )
 
 INSTALLED_APPS = CORE_APPS + OUR_APPS + THIRD_PARTY_APPS
