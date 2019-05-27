@@ -1,0 +1,29 @@
+{% extends "__base.html" %}
+
+{% block page_content %}
+<div class="card">
+    <div class="card-header">
+        <div class="row align-items-center">
+            <div class="col-8">
+                <h3 class="mb-0">Delete Book #{{object.id}}</h3>
+            </div>
+            <div class="col-4 text-right">
+                <a href="{% url 'book-list' %}" class="btn btn-sm btn-primary">View All</a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            <div class="alert alert-warning" role="alert">
+                Are you sure you want to delete <strong>{{ object }}</strong> ?
+            </div>
+            <div class="row">
+                <div class="col-4 offset-4">
+                    <button type="submit" class="btn btn-block btn-danger">Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
