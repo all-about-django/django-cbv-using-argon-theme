@@ -28,6 +28,7 @@ class BookListView(ListView):
         except EmptyPage:
             books = paginator.page(paginator.num_pages)
         context['books'] = books
+        return context
 
 
 @method_decorator(login_required, name='dispatch')
